@@ -36,6 +36,13 @@ export default function ProjectBlock({ setBlocks, blocks, index, block }) {
             onChange={onChange}
           />
 
+          <Input
+            label="Link"
+            name="link"
+            type="text"
+            onChange={onChange}
+          />
+
           <div className="grid grid-cols-1 gap-2">
             <TextArea
               label="Description"

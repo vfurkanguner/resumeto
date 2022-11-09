@@ -48,26 +48,14 @@ export default function EducationBlock({ setBlocks, blocks, index, block }) {
             <Input
               label="Start Date"
               name="startDate"
-              type="number"
+              type="date"
               onChange={onChange}
             />
 
             <Input
               label="End Date"
               name="endDate"
-              type="number"
-              onChange={onChange}
-            />
-          </div>
-
-          <div className="grid grid-cols-2 gap-2">
-            <Input label="City" name="city" type="text" onChange={onChange} />
-          </div>
-
-          <div className="grid grid-cols-1 gap-2">
-            <TextArea
-              label="Description"
-              name="description"
+              type="date"
               onChange={onChange}
             />
           </div>

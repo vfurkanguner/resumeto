@@ -70,9 +70,11 @@ export default function AccordionBox({ title, desc, type, blocks, setBlocks }) {
   };
 
   return (
-    <div className="w-full space-y-2">
-      <h1 className="text-md font-medium">{title}</h1>
-      <p className="text-sm font-light text-gray-400">{desc}</p>
+    <div className="w-full space-y-6">
+      <div>
+        <h1 className="text-md font-medium">{title}</h1>
+        <p className="text-sm font-light text-gray-400">{desc}</p>
+      </div>
 
       {blocks
         ? blocks?.map((block, index) => (

@@ -1,15 +1,9 @@
 import React, { useState } from "react";
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import Input from "../Input";
-import TextArea from "../TextArea";
 
-export default function SocialBlock({ setBlocks, blocks, index, block }) {
-  const [blockVisible, setBlockVisible] = useState(true);
-
+export default function SocialBlock({ setBlocks, blocks }) {
   const onChange = (e) => {
-    let newArr = [...blocks];
-    newArr[index][e.target.name] = e.target.value;
-    setBlocks(newArr);
+    setBlocks({ ...blocks, [e.target.name]: e.target.value });
   };
 
   return (

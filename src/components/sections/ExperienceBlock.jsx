@@ -63,10 +63,6 @@ export default function ExperienceBlock({ setBlocks, blocks, index, block }) {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
-            <Input label="City" name="city" type="text" onChange={onChange} />
-          </div>
-
           <div className="grid grid-cols-1 gap-2">
             <TextArea
               label="Description"
