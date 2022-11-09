@@ -67,7 +67,7 @@ export default function SkillBlock({ setBlocks, blocks }) {
       <div>
         <h1 className="text-md font-medium">Skills</h1>
         <p className="text-sm font-light text-gray-400">
-          Add up to 5 skills to your profile (e.g. HTML, CSS, JavaScript, etc.)
+          Add up to 10 skills to your profile (e.g. HTML, CSS, JavaScript, etc.)
         </p>
       </div>
 
@@ -77,10 +77,10 @@ export default function SkillBlock({ setBlocks, blocks }) {
             className="flex rounded hover:bg-zinc-900 cursor-pointer hover:text-slate-100 bg-slate-200 px-4 py-2 text-xs text-slate-600 font-light"
             key={skill.id}
             onClick={() => {
-              blocks.length >= 5 && alert("You can only add up to 5 skills");
-              blocks.length < 5 && onAddSelect(skill);
+              blocks.length >= 10 && alert("You can only add up to 10 skills");
+              blocks.length < 10 && onAddSelect(skill);
             }}
-            disabled={blocks.length >= 5}
+            disabled={blocks.length >= 10}
           >
             {skill.name}
             <PlusIcon className="w-4 h-4 ml-1" />
@@ -98,8 +98,8 @@ export default function SkillBlock({ setBlocks, blocks }) {
 
         <button
           onClick={() => {
-            blocks.length >= 5 && alert("You can only add up to 5 skills");
-            blocks.length < 5 && onAddClick();
+            blocks.length >= 10 && alert("You can only add up to 10 skills");
+            blocks.length < 10 && onAddClick();
           }}
           className="bg-zinc-900 flex-shrink-0 text-white rounded-md p-2"
         >

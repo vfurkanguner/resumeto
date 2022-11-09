@@ -60,7 +60,7 @@ export default function FormLayout({
         <div className="flex flex-col  space-y-1 justify-between">
           <p className="text-sm font-medium text-zinc-900">Avatar</p>
           <label htmlFor="file-upload" className="h-full cursor-pointer">
-            <p className="border bg-white rounded-md  hover:bg-zinc-200 px-4 py-2 focus:outline-none focus:ring-1 focus:ring-zinc-400">
+            <p className="border bg-zinc-200 rounded-md  hover:bg-zinc-300 px-4 py-2 focus:outline-none focus:ring-1 focus:ring-zinc-400">
               {avatar ? "Selected" : "Select Image"}
             </p>
             <input

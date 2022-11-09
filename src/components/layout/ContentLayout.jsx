@@ -28,26 +28,28 @@ export default function ContentLayout({
                 <img
                   src={avatar}
                   alt="Avatar"
-                  className="rounded-full flex-shrink-0 object-cover w-16 h-16 md:h-48 md:w-48 ring-2 ring-white"
+                  className="rounded-full flex-shrink-0 object-cover w-32 h-32 md:h-48 md:w-48 ring-2 ring-white"
                 />
               ) : (
                 <div>
-                  <UserCircleIcon className="h-16 w-16 md:h-48 md:w-48 ring-2 ring-white rounded-full" />
+                  <UserCircleIcon className="h-32 w-32 md:h-48 md:w-48 ring-2 ring-white rounded-full" />
                 </div>
               )}
-              <div className="space-y-2">
+              <div className="space-y-4">
+                <div className=" space-y-1">
                 <h1 className="text-4xl md:text-5xl font-semibold capitalize">{`${state?.name} ${state?.surname}`}</h1>
                 <p className="text-lg capitalize">{state?.jobTitle}</p>
+                </div>
                 <p className="font-light text-sm ">{state.bio}</p>
                 <ul className="flex gap-2 flex-wrap">
                   {Object.entries(socialBlocks).map(([key, value]) => {
                     return (
-                      <li key={key} className="inline-block">
+                      <li key={key} className="inline-block bg-amber-100 px-4 py-1 rounded-md border border-amber-500">
                         <a
                           href={value}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-gray-500 capitalize hover:text-gray-600"
+                          className="text-amber-500 capitalize hover:text-amber-600"
                         >
                           {key}
                         </a>
