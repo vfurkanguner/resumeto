@@ -19,7 +19,7 @@ export default function ContentLayout({
 }) {
   return (
     <div id="content" className="relative w-full h-full py-16 ">
-      <div className="px-4 flex flex-col items-center justify-center">
+      <div className="px-4">
         <div className="border bg-white p-8 rounded-md w-full lg:max-w-4xl lg:mx-auto h-full lg:p-8 ">
           <section className="space-y-8">
             {/*Header */}
@@ -37,14 +37,17 @@ export default function ContentLayout({
               )}
               <div className="space-y-4">
                 <div className=" space-y-1">
-                <h1 className="text-4xl md:text-5xl font-semibold capitalize">{`${state?.name} ${state?.surname}`}</h1>
-                <p className="text-lg capitalize">{state?.jobTitle}</p>
+                  <h1 className="text-4xl md:text-5xl font-semibold capitalize">{`${state?.name} ${state?.surname}`}</h1>
+                  <p className="text-lg capitalize">{state?.jobTitle}</p>
                 </div>
                 <p className="font-light text-sm ">{state.bio}</p>
                 <ul className="flex gap-2 flex-wrap">
                   {Object.entries(socialBlocks).map(([key, value]) => {
                     return (
-                      <li key={key} className="inline-block bg-amber-100 px-4 py-1 rounded-md border border-amber-500">
+                      <li
+                        key={key}
+                        className="inline-block bg-amber-100 px-4 py-1 rounded-md border border-amber-500"
+                      >
                         <a
                           href={value}
                           target="_blank"
@@ -60,11 +63,13 @@ export default function ContentLayout({
               </div>
             </header>
             {/*Professional Summary */}
-            <div className="flex-wrap">
+            <div className="">
               <h2 className="text-2xl items-center font-medium border-b py-4 mb-4">
                 Professional Summary
               </h2>
-              <p className="flex-wrap flex">{state?.summary}</p>
+              <div className="">
+                <span className="flex-wrap flex ">{state?.summary}</span>
+              </div>
             </div>
             {/*Experience */}
             <div>
@@ -158,7 +163,7 @@ export default function ContentLayout({
             </div>
             {/*Skills */}
             <div>
-            <h2 className="text-2xl items-center font-medium border-b py-4 mb-4 flex">
+              <h2 className="text-2xl items-center font-medium border-b py-4 mb-4 flex">
                 <div className="flex items-center justify-center mr-2 bg-amber-100 ring-2 ring-amber-500 p-2 rounded-full">
                   <SparklesIcon className="h-6 w-6 inline-block text-amber-600" />
                 </div>

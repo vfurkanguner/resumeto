@@ -36,7 +36,7 @@ const initialState = {
 
 function App() {
   const size = useWindowSize();
-  const INITIAL_WIDTH = size.width / 2;
+  const INITIAL_WIDTH = window.innerWidth / 2;
 
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
