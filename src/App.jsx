@@ -6,15 +6,15 @@ import ContentLayout from "./components/layout/ContentLayout";
 import { ArrowsPointingOutIcon } from "@heroicons/react/24/solid";
 
 const initialState = {
-  name: "V. Furkan",
+  name: "John",
   bio: "This is my bio ✨",
   jobTitle: "Software Engineer",
-  surname: "Güner",
+  surname: "Doe",
   country: "Turkey",
   linkedin: "linkedin.com",
   github: "github.com",
   website: "vfurkanguner.com",
-  summary: "",
+  summary: "You can edit this summary from the form on the left.",
 };
 // const initialState = {
 //   name: "",
