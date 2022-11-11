@@ -171,7 +171,7 @@ function App() {
         style={{ width: size.width > 1024 ? contentSize : "100%" }}
         className="bg-zinc-200 text-zinc-900  lg:fixed lg:right-0 z-[52] w-full lg:top-0 lg:bottom-0 lg:w-1/2 overflow-y-auto"
       >
-        <div className="relative">
+        <div className="relative h-full">
           <div className="text-white flex flex-col p-3 md:p-0 text-center md:text-left md:flex-row md:sticky bg-black top-0 border-b flex items-center justify-center z-[55] px-10">
             <span className="text-sm">
               You can download your resume as html file and use it on your

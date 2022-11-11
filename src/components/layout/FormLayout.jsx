@@ -100,6 +100,9 @@ export default function FormLayout({
           onChange={handleChange}
         />
       </section>
+
+      <SocialBlock setBlocks={setSocialBlocks} blocks={socialBlocks} />
+
       <TextArea
         label="Professional Summary"
         description="Write 2-4 short & energetic sentences to interest the reader! Mention your role, experience & most importantly - your biggest achievements, best qualities and skills."
@@ -123,8 +126,6 @@ export default function FormLayout({
         setBlocks={setEducationBlocks}
       />
 
-      <SkillBlock setBlocks={setSkillBlocks} blocks={skillBlocks} />
-
       <AccordionBox
         title="Project"
         desc="Show your relevant experience (last 10 years). Use bullet points to note your achievements, if possible - use numbers/facts (Achieved X, measured by Y, by doing Z)."
@@ -133,7 +134,7 @@ export default function FormLayout({
         setBlocks={setProjectBlocks}
       />
 
-      <SocialBlock setBlocks={setSocialBlocks} blocks={socialBlocks} />
+      <SkillBlock setBlocks={setSkillBlocks} blocks={skillBlocks} />
 
       {/* <div dangerouslySetInnerHTML={{ __html: value }} /> */}
     </div>

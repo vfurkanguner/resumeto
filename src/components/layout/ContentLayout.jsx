@@ -18,8 +18,8 @@ export default function ContentLayout({
   avatar,
 }) {
   return (
-    <div id="content" className="relative w-full h-full py-16 bg-white">
-      <div className="px-4">
+    <div id="content" className="relative w-full h-full py-16 ">
+      <div className="px-4 flex flex-col items-center justify-center">
         <div className="border bg-white p-8 rounded-md lg:max-w-4xl lg:mx-auto h-full lg:p-8 ">
           <section className="space-y-8">
             {/*Header */}
@@ -60,11 +60,11 @@ export default function ContentLayout({
               </div>
             </header>
             {/*Professional Summary */}
-            <div>
+            <div className="flex-wrap">
               <h2 className="text-3xl font-medium border-b py-4 mb-4">
                 Professional Summary
               </h2>
-              <p className="flex-wrap">{state?.summary}</p>
+              <p className="flex-wrap flex">{state?.summary}</p>
             </div>
             {/*Experience */}
             <div>
@@ -145,13 +145,13 @@ export default function ContentLayout({
                         {block.projectTitle}
                       </h3>
                     </div>
-                    <p className="text-sm hover:text-slate-400  hover:underline truncate">
+                    <p className="w-48 text-sm hover:text-slate-400  hover:underline truncate">
                       {block.link ? (
                         <LinkIcon className="h-4 w-4 inline-block mr-2" />
                       ) : null}
                       <a href={block.link}>{block.link}</a>
                     </p>
-                    <p className="flex-wrap">{block.description}</p>
+                    <p className="flex-wrap flex">{block.description}</p>
                   </div>
                 ))}
               </ul>
