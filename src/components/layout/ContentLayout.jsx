@@ -20,7 +20,7 @@ export default function ContentLayout({
   return (
     <div id="content" className="relative w-full h-full py-16 ">
       <div className="px-4 flex flex-col items-center justify-center">
-        <div className="border bg-white p-8 rounded-md lg:max-w-4xl lg:mx-auto h-full lg:p-8 ">
+        <div className="border bg-white p-8 rounded-md w-full lg:max-w-4xl lg:mx-auto h-full lg:p-8 ">
           <section className="space-y-8">
             {/*Header */}
             <header className="flex flex-col lg:flex-row lg:space-x-8 w-full space-y-8 lg:space-y-0">
