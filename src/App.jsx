@@ -173,7 +173,7 @@ function App() {
       >
         <div className="relative h-full">
           <div className="text-white flex flex-col p-3 md:p-0 text-center md:text-left md:flex-row md:sticky bg-black top-0 border-b flex items-center justify-center z-[55] px-10">
-            <span className="text-sm">
+            <span className="text-sm px-8">
               You can download your resume as html file and use it on your
               website.
             </span>

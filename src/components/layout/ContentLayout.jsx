@@ -61,14 +61,14 @@ export default function ContentLayout({
             </header>
             {/*Professional Summary */}
             <div className="flex-wrap">
-              <h2 className="text-3xl font-medium border-b py-4 mb-4">
+              <h2 className="text-2xl items-center font-medium border-b py-4 mb-4">
                 Professional Summary
               </h2>
               <p className="flex-wrap flex">{state?.summary}</p>
             </div>
             {/*Experience */}
             <div>
-              <h2 className="text-3xl font-medium border-b py-4 mb-4 flex">
+              <h2 className="text-2xl items-center font-medium border-b py-4 mb-4 flex">
                 <div className="flex items-center justify-center mr-2 bg-indigo-100 ring-2 ring-indigo-500 p-2 rounded-full">
                   <BriefcaseIcon className="h-6 w-6 inline-block  text-indigo-600" />
                 </div>
@@ -98,7 +98,7 @@ export default function ContentLayout({
             </div>
             {/*Education*/}
             <div>
-              <h2 className="text-3xl font-medium border-b py-4 mb-4 flex">
+              <h2 className="text-2xl items-center font-medium border-b py-4 mb-4 flex">
                 <div className="flex items-center justify-center mr-2 bg-green-100 ring-2 ring-green-500 p-2 rounded-full">
                   <AcademicCapIcon className="h-6 w-6 inline-block text-green-600" />
                 </div>
@@ -128,7 +128,7 @@ export default function ContentLayout({
 
             {/*Projects*/}
             <div>
-              <h2 className="text-3xl font-medium border-b py-4 mb-4 flex">
+              <h2 className="text-2xl items-center font-medium border-b py-4 mb-4 flex">
                 <div className="flex items-center justify-center mr-2 bg-blue-100 ring-2 ring-blue-500 p-2 rounded-full">
                   <ComputerDesktopIcon className="h-6 w-6 inline-block text-blue-600" />
                 </div>
@@ -158,7 +158,7 @@ export default function ContentLayout({
             </div>
             {/*Skills */}
             <div>
-            <h2 className="text-3xl font-medium border-b py-4 mb-4 flex">
+            <h2 className="text-2xl items-center font-medium border-b py-4 mb-4 flex">
                 <div className="flex items-center justify-center mr-2 bg-amber-100 ring-2 ring-amber-500 p-2 rounded-full">
                   <SparklesIcon className="h-6 w-6 inline-block text-amber-600" />
                 </div>
