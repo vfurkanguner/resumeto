@@ -63,9 +63,12 @@ function App() {
   }
 
 
-  const renderContent = () => {
+  const renderContent = (isPassive = false ) => {
+    const ContainerRenderer = isPassive ? 
+    (({ children }) => children) :  // Empty Container
+    ({ children }) => <div id="content" className="relative w-full h-full py-16 ">{ children}</div>;
     return  (<ContentLayout
-      ContainerRenderer={({ children }) => children}
+      ContainerRenderer={ContainerRenderer}
       state={state}
       avatar={avatar}
       onMouseDown={onMouseDown}
@@ -84,7 +87,7 @@ function App() {
     const element = document.createElement("a");
     const finalHtml = ReactDOMServer.renderToStaticMarkup(
       <HTMLBase>
-        {renderContent()}
+        {renderContent(true)}
       </HTMLBase>
     );
     console.log(finalHtml);
