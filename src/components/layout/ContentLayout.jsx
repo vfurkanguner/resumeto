@@ -10,6 +10,7 @@ import {
 
 export default function ContentLayout({
   ContainerRenderer,
+  Footer,
   experienceBlocks,
   educationBlocks,
   skillBlocks,
@@ -182,8 +183,15 @@ export default function ContentLayout({
               </ul>
             </div>
           </section>
+        {Footer}
         </div>
       </div>
+
     </ContainerRenderer>
   );
+}
+
+ContentLayout.defaultProps = {
+  ContainerRenderer: ({ children }) => <>{children}</>,
+  Footer: <></>
 }

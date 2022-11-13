@@ -80,6 +80,7 @@ function App() {
       skillBlocks={skillBlocks}
       socialBlocks={socialBlocks}
       projectBlocks={projectBlocks}
+      Footer={<div>Resumeto - Best Resume Creator |  Click here to remove branding link to paypal</div>}
     />);
   }
 
