@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import ReactDOMServer from 'react-dom/server';
 import FormLayout from "./components/layout/FormLayout";
 import reducer from "./reducers/userReducer";
 import useWindowSize from "./hooks/useWindowSize";
 import ContentLayout from "./components/layout/ContentLayout";
 import { ArrowsPointingOutIcon } from "@heroicons/react/24/solid";
+import { HTMLBase } from './templates';
 
 const initialState = {
   name: "John",
@@ -16,23 +18,7 @@ const initialState = {
   website: "vfurkanguner.com",
   summary: "You can edit this summary from the form on the left.",
 };
-// const initialState = {
-//   name: "",
-//   bio: "",
-//   jobTitle: "",
-//   surname: "",
-//   email: "",
-//   phone: "",
-//   address: "",
-//   city: "",
-//   state: "",
-//   zip: "",
-//   country: "",
-//   linkedin: "",
-//   github: "",
-//   website: "",
-//   summary: "",
-// };
+
 
 function App() {
   const size = useWindowSize();
@@ -76,36 +62,32 @@ function App() {
     return classes.filter(Boolean).join(" ");
   }
 
-  const initialHtml = (content) => `<!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-      <script src="https://cdn.tailwindcss.com"></script>
-      <style type="text/tailwindcss">
-        @layer base {
-          html {
-            @apply text-zinc-900 h-full bg-gray-100;
-          }
 
-          body {
-            @apply h-full py-16 overflow-y-auto;
-          }
-        }
-      </style>
-  </head>
-  <body>
-      ${content}
-  </body>
-  </html>
-  `;
+  const renderContent = () => {
+    return  (<ContentLayout
+      ContainerRenderer={({ children }) => children}
+      state={state}
+      avatar={avatar}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+      isDragging={isDragging}
+      experienceBlocks={experienceBlocks}
+      educationBlocks={educationBlocks}
+      skillBlocks={skillBlocks}
+      socialBlocks={socialBlocks}
+      projectBlocks={projectBlocks}
+    />);
+  }
 
   const onClickDownloadAsHtml = () => {
     const element = document.createElement("a");
-    const content = document.getElementById("content").innerHTML;
-    const finalHtml = initialHtml(content);
+    const finalHtml = ReactDOMServer.renderToStaticMarkup(
+      <HTMLBase>
+        {renderContent()}
+      </HTMLBase>
+    );
+    console.log(finalHtml);
 
     const file = new Blob([finalHtml], {
       type: "text/html",
@@ -185,19 +167,7 @@ function App() {
             </button>
           </div>
 
-          <ContentLayout
-            state={state}
-            avatar={avatar}
-            onMouseDown={onMouseDown}
-            onMouseMove={onMouseMove}
-            onMouseUp={onMouseUp}
-            isDragging={isDragging}
-            experienceBlocks={experienceBlocks}
-            educationBlocks={educationBlocks}
-            skillBlocks={skillBlocks}
-            socialBlocks={socialBlocks}
-            projectBlocks={projectBlocks}
-          />
+          {renderContent()}
         </div>
       </aside>
     </div>

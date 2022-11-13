@@ -9,6 +9,7 @@ import {
 } from "@heroicons/react/24/solid";
 
 export default function ContentLayout({
+  ContainerRenderer,
   experienceBlocks,
   educationBlocks,
   skillBlocks,
@@ -18,7 +19,7 @@ export default function ContentLayout({
   avatar,
 }) {
   return (
-    <div id="content" className="relative w-full h-full py-16 ">
+    <ContainerRenderer id="content" className="relative w-full h-full py-16 ">
       <div className="px-4">
         <div className="border bg-white p-8 rounded-md w-full lg:max-w-4xl lg:mx-auto h-full lg:p-8 ">
           <section className="space-y-8">
@@ -183,6 +184,10 @@ export default function ContentLayout({
           </section>
         </div>
       </div>
-    </div>
+    </ContainerRenderer>
   );
+}
+
+ContentLayout.defaultProps = {
+  ContainerRenderer: ({ children }) =>  <div id="content" className="relative w-full h-full py-16 ">{ children}</div>
 }
