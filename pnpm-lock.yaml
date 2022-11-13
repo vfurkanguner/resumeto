@@ -1,4 +1,4 @@
-lockfileVersion: 5.4
+lockfileVersion: 5.3
 
 specifiers:
   '@heroicons/react': ^2.0.13
@@ -16,10 +16,10 @@ specifiers:
 
 dependencies:
   '@heroicons/react': 2.0.13_react@18.2.0
-  '@reach/router': 1.3.4_biqbaboplfbrettd7655fr4n2y
+  '@reach/router': 1.3.4_react-dom@18.2.0+react@18.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-quill: 2.0.0_biqbaboplfbrettd7655fr4n2y
+  react-quill: 2.0.0_react-dom@18.2.0+react@18.2.0
 
 devDependencies:
   '@types/react': 18.0.25
@@ -27,7 +27,7 @@ devDependencies:
   '@vitejs/plugin-react': 2.2.0_vite@3.2.3
   autoprefixer: 10.4.13_postcss@8.4.19
   postcss: 8.4.19
-  tailwindcss: 3.2.4_postcss@8.4.19
+  tailwindcss: 3.2.4
   vite: 3.2.3
 
 packages:
@@ -384,13 +384,13 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@reach/router/1.3.4_biqbaboplfbrettd7655fr4n2y:
+  /@reach/router/1.3.4_react-dom@18.2.0+react@18.2.0:
     resolution: {integrity: sha512-+mtn9wjlB9NN2CNnnC/BRYtwdKBfSyyasPYraNAyvaV1occr/5NnB4CVzjEZipNHwYebQwcndGUmpFzxAUoqSA==}
     peerDependencies:
       react: 15.x || 16.x || 16.4.0-alpha.0911da3
       react-dom: 15.x || 16.x || 16.4.0-alpha.0911da3
     dependencies:
-      create-react-context: 0.3.0_sh5qlbywuemxd2y3xkrw2y2kr4
+      create-react-context: 0.3.0_prop-types@15.8.1+react@18.2.0
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 18.2.0
@@ -584,7 +584,7 @@ packages:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
     dev: true
 
-  /create-react-context/0.3.0_sh5qlbywuemxd2y3xkrw2y2kr4:
+  /create-react-context/0.3.0_prop-types@15.8.1+react@18.2.0:
     resolution: {integrity: sha512-dNldIoSuNSvlTJ7slIKC/ZFGKexBMBrrcc+TTe1NdmROnaASuLPvqpwj9v4XS4uXZ8+YPu0sNmShX2rXI5LNsw==}
     peerDependencies:
       prop-types: ^15.0.0
@@ -1311,7 +1311,7 @@ packages:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
     dev: false
 
-  /react-quill/2.0.0_biqbaboplfbrettd7655fr4n2y:
+  /react-quill/2.0.0_react-dom@18.2.0+react@18.2.0:
     resolution: {integrity: sha512-4qQtv1FtCfLgoD3PXAur5RyxuUbPXQGOHgTlFie3jtxp43mXDtzCKaOgQ3mLyZfi1PUlyjycfivKelFhy13QUg==}
     peerDependencies:
       react: ^16 || ^17 || ^18
@@ -1418,12 +1418,10 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /tailwindcss/3.2.4_postcss@8.4.19:
+  /tailwindcss/3.2.4:
     resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==}
     engines: {node: '>=12.13.0'}
     hasBin: true
-    peerDependencies:
-      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
