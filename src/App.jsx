@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import ReactDOMServer from 'react-dom/server';
 import FormLayout from "./components/layout/FormLayout";
 import reducer from "./reducers/userReducer";
-import useWindowSize from "./hooks/useWindowSize";
 import ContentLayout from "./components/layout/ContentLayout";
-import { ArrowsPointingOutIcon } from "@heroicons/react/24/solid";
 import { HTMLBase } from './templates';
+import { Link } from 'react-router-dom';
+import { jsPDF } from "jspdf";
 
 const initialState = {
   name: "John",
@@ -21,9 +21,6 @@ const initialState = {
 
 
 function App() {
-  const size = useWindowSize();
-  const INITIAL_WIDTH = window.innerWidth / 2;
-
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   const [experienceBlocks, setExperienceBlocks] = useState([]);
@@ -31,36 +28,15 @@ function App() {
   const [skillBlocks, setSkillBlocks] = useState([]);
   const [socialBlocks, setSocialBlocks] = useState({});
   const [projectBlocks, setProjectBlocks] = useState([]);
-  const [contentSize, setContentSize] = useState(INITIAL_WIDTH);
   const [selectedFile, setSelectedFile] = useState(null);
   const [avatar, setAvatar] = useState(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [positionX, setPositionX] = useState(window.innerWidth / 2);
 
-  const onMouseDown = (e) => {
-    setIsDragging(true);
-  };
-
-  const onMouseUp = (e) => {
-    setIsDragging(false);
-  };
-
-  const onMouseMove = (e) => {
-    if (isDragging) {
-      const x = size.width - e.clientX;
-      setContentSize(x);
-      setPositionX(e.clientX);
-    }
-  };
 
   const handleChange = React.useCallback((e) => {
     const { name, value } = e.target;
     dispatch({ type: "UPDATE_INPUTS", payload: { name, value } });
   }, []);
 
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-  }
 
 
   const renderContent = (isPassive = false ) => {
@@ -71,16 +47,12 @@ function App() {
       ContainerRenderer={ContainerRenderer}
       state={state}
       avatar={avatar}
-      onMouseDown={onMouseDown}
-      onMouseMove={onMouseMove}
-      onMouseUp={onMouseUp}
-      isDragging={isDragging}
       experienceBlocks={experienceBlocks}
       educationBlocks={educationBlocks}
       skillBlocks={skillBlocks}
       socialBlocks={socialBlocks}
       projectBlocks={projectBlocks}
-      Footer={<div>Resumeto - Best Resume Creator |  Click here to remove branding link to paypal</div>}
+      Footer={<div className="text-center"> <span className="font-semibold">Resumeto</span> - Best Resume Creator</div>}
     />);
   }
 
@@ -91,7 +63,6 @@ function App() {
         {renderContent(true)}
       </HTMLBase>
     );
-    console.log(finalHtml);
 
     const file = new Blob([finalHtml], {
       type: "text/html",
@@ -102,36 +73,19 @@ function App() {
     element.click();
   };
 
+  const allStates = {
+    state,
+    experienceBlocks,
+    educationBlocks,
+    skillBlocks,
+    socialBlocks,
+    projectBlocks,
+    selectedFile,
+    avatar,
+  };
+
   return (
     <div className="relative flex flex-col">
-      <div
-        style={{
-          left: positionX,
-        }}
-        className="hidden lg:fixed lg:flex top-0 bottom-0  bg-slate-50 z-[60]"
-      >
-        <div
-          onMouseDown={onMouseDown}
-          onMouseUp={onMouseUp}
-          onMouseMove={onMouseMove}
-          className={classNames(
-            "w-px h-full fixed",
-            isDragging ? "bg-blue-600" : "bg-whşte"
-          )}
-        />
-        <button
-          onMouseDown={onMouseDown}
-          onMouseUp={onMouseUp}
-          onMouseMove={onMouseMove}
-          className="bg-black absolute cursor-move -left-5 z-[51] top-[50%] border flex items-center justify-center rounded-lg w-10 h-10"
-        >
-          <ArrowsPointingOutIcon
-            className="h-6 w-6 text-white"
-            aria-hidden="true"
-          />
-        </button>
-      </div>
-
       <main className="lg:fixed bg-slate-50 left-0 top-0 overflow-y-auto bottom-0 bg-shadow lg:w-1/2 py-8">
         <FormLayout
           state={state}
@@ -154,17 +108,24 @@ function App() {
       </main>
 
       <aside
-        style={{ width: size.width > 1024 ? contentSize : "100%" }}
         className="bg-zinc-200 text-zinc-900  lg:fixed lg:right-0 z-[52] w-full lg:top-0 lg:bottom-0 lg:w-1/2 overflow-y-auto"
       >
         <div className="relative h-full">
-          <div className="text-white flex flex-col p-3 md:p-0 text-center md:text-left md:flex-row md:sticky bg-black top-0 border-b flex items-center justify-center z-[55] px-10">
+          <div className="text-white flex-col p-3 md:p-0 text-center md:text-left md:flex-row md:sticky bg-black top-0 border-b flex items-center justify-center z-[55] px-10">
             <span className="text-sm px-8">
               You can download your resume as html file and use it on your
               website.
             </span>
+            <Link
+              to={`/cv/${state.name.toLowerCase()}-${state.surname.toLowerCase()}`}
+              className="border px-6 py-2 m-2  rounded-md"
+              state={allStates}
+            >
+              Preview 
+            </Link>
             <button
               onClick={onClickDownloadAsHtml}
+              // onClick={generatePDF}
               className="bg-green-600 hover:bg-green-700 px-6 py-2 m-2  rounded-md"
             >
               Download

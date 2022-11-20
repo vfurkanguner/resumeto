@@ -39,10 +39,10 @@ export default function ContentLayout({
               )}
               <div className="space-y-4">
                 <div className=" space-y-1">
-                  <h1 className="text-4xl md:text-5xl font-semibold capitalize">{`${state?.name} ${state?.surname}`}</h1>
+                  <h1 className="text-3xl md:text-4xl font-semibold capitalize">{`${state?.name} ${state?.surname}`}</h1>
                   <p className="text-lg capitalize">{state?.jobTitle}</p>
                 </div>
-                <p className="font-light text-sm ">{state.bio}</p>
+                <p className="font-light text-sm">{state.bio}</p>
                 <ul className="flex gap-2 flex-wrap">
                   {Object.entries(socialBlocks).map(([key, value]) => {
                     return (
@@ -185,7 +185,7 @@ export default function ContentLayout({
           </section>
         {Footer}
         </div>
-      </div>
+        </div>
 
     </ContainerRenderer>
   );

@@ -1,14 +1,15 @@
-import React from 'react';
-import { Router, Link } from '@reach/router';
-import App from './App';
-import ResumeView from './ResumeView';
+import React from "react";
+import { Route, Link, BrowserRouter, Routes } from "react-router-dom";
+import App from "./App";
+import ResumeView from "./ResumeView";
 
 const MainRouter = () => (
-    <Router>
-        <App path="/" /> 
-        <ResumeView path="/cv/:resumeSlug" /> 
-    </Router>
-)
-
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/cv/:resumeSlug" element={<ResumeView />} />
+    </Routes>
+  </BrowserRouter>
+);
 
 export default MainRouter;
