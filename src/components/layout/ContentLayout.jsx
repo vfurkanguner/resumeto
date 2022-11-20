@@ -19,6 +19,18 @@ export default function ContentLayout({
   state,
   avatar,
 }) {
+  const startDateConvert = (date) => {
+    if (date) {
+      const newDate = new Date(date);
+      return newDate.toLocaleDateString("en-US", {
+        month: "short",
+        year: "numeric",
+      });
+    }
+
+    return date;
+  };
+
   return (
     <ContainerRenderer>
       <div className="px-4">
@@ -92,7 +104,9 @@ export default function ContentLayout({
                         {block.jobtitle}
                       </h3>
                       <p className="font-light text-sm capitalize">
-                        {`${block.startDate}-${block.endDate}`}
+                        {`${startDateConvert(
+                          block.startDate
+                        )}-${startDateConvert(block.endDate)}`}
                       </p>
                     </div>
                     <p className="text-lg font-medium capitalize ">
@@ -122,7 +136,9 @@ export default function ContentLayout({
                         {block.school}
                       </h3>
                       <p className="font-light text-sm capitalize">
-                        {`${block.startDate}-${block.endDate}`}
+                        {`${startDateConvert(
+                          block.startDate
+                        )}-${startDateConvert(block.endDate)}`}
                       </p>
                     </div>
                     <p className="text-lg font-medium capitalize">
