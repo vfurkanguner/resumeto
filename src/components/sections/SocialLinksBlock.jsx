@@ -8,13 +8,6 @@ export default function SocialBlock({ setBlocks, blocks }) {
 
   return (
     <div className="space-y-4  w-full">
-      <div>
-        <h1 className="text-md font-medium">Websites & Social Links</h1>
-        <p className="text-sm font-light text-gray-400">
-          Add links to your social media profiles and websites.
-        </p>
-      </div>
-
       <ul className="border w-full rounded-lg grid grid-cols-2 gap-x-4  p-4">
         <Input label="Email" name="email" type="text" onChange={onChange} />
         <Input label="Website" name="website" type="text" onChange={onChange} />

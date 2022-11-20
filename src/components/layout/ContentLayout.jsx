@@ -22,7 +22,7 @@ export default function ContentLayout({
   return (
     <ContainerRenderer>
       <div className="px-4">
-        <div className="border bg-white p-8 rounded-md w-full lg:max-w-4xl lg:mx-auto h-full lg:p-8 ">
+        <div className="border bg-white p-8 rounded-md w-full lg:max-w-4xl lg:mx-auto  lg:p-8 ">
           <section className="space-y-8">
             {/*Header */}
             <header className="flex flex-col lg:flex-row lg:space-x-8 w-full space-y-8 lg:space-y-0">
@@ -183,15 +183,14 @@ export default function ContentLayout({
               </ul>
             </div>
           </section>
-        {Footer}
+          <footer className="mt-8">{Footer}</footer>
         </div>
-        </div>
-
+      </div>
     </ContainerRenderer>
   );
 }
 
 ContentLayout.defaultProps = {
   ContainerRenderer: ({ children }) => <>{children}</>,
-  Footer: <></>
-}
+  Footer: <></>,
+};
