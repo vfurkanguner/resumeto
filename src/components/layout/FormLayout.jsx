@@ -4,6 +4,7 @@ import Input from "../Input";
 import TextArea from "../TextArea";
 import SkillBlock from "../sections/SkillsBlock";
 import SocialBlock from "../sections/SocialLinksBlock";
+import Accordion from "../Accordion";
 
 export default function FormLayout({
   state,
@@ -47,7 +48,7 @@ export default function FormLayout({
   };
 
   return (
-    <div className="space-y-4 px-4 md:px-10">
+    <div className="space-y-8 px-4 md:px-10">
       <h1 className="text-3xl font-bold">Resumeto</h1>
       <div className="bg-zinc-900  rounded-xl p-4 font-medium text-zinc-200">
         <span>Hi there🤘🏻</span>
@@ -101,18 +102,21 @@ export default function FormLayout({
         />
       </section>
 
-      <SocialBlock setBlocks={setSocialBlocks} blocks={socialBlocks} />
-
       <TextArea
         label="Professional Summary"
-        description="Write 2-4 short & energetic sentences to interest the reader! Mention your role, experience & most importantly - your biggest achievements, best qualities and skills."
+        description="Write a short summary of your professional experience and skills."
         name="summary"
         onChange={handleChange}
       />
 
+      <Accordion>
+        <SocialBlock setBlocks={setSocialBlocks} blocks={socialBlocks} />
+      </Accordion>
+
+
       <AccordionBox
         title="Experience"
-        desc="Show your relevant experience (last 10 years). Use bullet points to note your achievements, if possible - use numbers/facts (Achieved X, measured by Y, by doing Z)."
+        desc="Show your relevant experience and achievements. Include your job title, company name, dates and a short description of your role."
         type="experience"
         blocks={experienceBlocks}
         setBlocks={setExperienceBlocks}
@@ -120,7 +124,7 @@ export default function FormLayout({
 
       <AccordionBox
         title="Education"
-        desc="Show your relevant experience (last 10 years). Use bullet points to note your achievements, if possible - use numbers/facts (Achieved X, measured by Y, by doing Z)."
+        desc="List your education and qualifications. Include your degree, school name, dates and a short description of your studies."
         type="education"
         blocks={educationBlocks}
         setBlocks={setEducationBlocks}
@@ -128,7 +132,7 @@ export default function FormLayout({
 
       <AccordionBox
         title="Project"
-        desc="Show your relevant experience (last 10 years). Use bullet points to note your achievements, if possible - use numbers/facts (Achieved X, measured by Y, by doing Z)."
+        desc="List your projects. Include your project name, project link, dates and a short description of your project."
         type="project"
         blocks={projectBlocks}
         setBlocks={setProjectBlocks}
